@@ -15,7 +15,7 @@ export default function Tarefa({data, deleteItem}){
 
 const styles =StyleSheet.create({
     container:{
-        backgroundColor:'rgba(0, 0, 0, 0.4)',
+        backgroundColor:'rgba(0, 196, 196, 0.4)',
         marginTop:12,
         padding:12,
         borderRadius:8,
