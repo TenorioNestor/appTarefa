@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import 
   {View,
    Text, 
@@ -18,42 +18,36 @@ export default function App(){
   const [tarefa, setTarefa] = useState('');
 
   const [list, setList] = useState([]);
-/*
+
   const [curso, setCurso] = useState(null);
 
-  const armazenar = (chave, valor)=>{
-    AsyncStorage.setItem(chave, valor)
-  }
-
-  const buscar = async (chave) =>{
-    const valor = await AsyncStorage.getItem(chave)
-    setCurso(valor);
-  }
-
-  armazenar('01', 'teste 1')
-  armazenar('02', 'teste 2')
-  armazenar('03', 'teste 3')
-
-  buscar ('03')
-  */
-
-  function handleAdd(){
+  
+  async function handleAdd(){
     if(tarefa === ''){
       return;
     }
 
+    
     const dados = {
       key:Date.now(),
       item:tarefa
     }
- 
-
+    
     //pega todos os dados que estão no array e adiciona a tarefa nova
     setList(oldArray => [dados, ...oldArray])
     setTarefa('')
     Keyboard.dismiss();
 
   }
+/*
+  async function getData (){
+    const response = await AsyncStorage.getItem('@app')
+    if (response){
+      setCurso(response)
+      console.log("Este é o response: "+ response)
+    }
+  }
+*/
 
   function handleDelete(item){
     let filtroItem = list.filter((tarefa) => {
@@ -62,8 +56,13 @@ export default function App(){
 
     setList(filtroItem)
   }
+  /*
 
+  useEffect(() => {
+    getData
+  },[])
 
+*/
   return(
     
     <View style={styles.container}>
@@ -79,6 +78,7 @@ export default function App(){
         <TouchableOpacity style={styles.buttonAdd} onPress={handleAdd} >
           <FontAwesome name='plus' size={20} color="#22272e"/>
         </TouchableOpacity>
+        
       </View>
 
       <FlatList
@@ -88,7 +88,6 @@ export default function App(){
         style={styles.list}
   />
 
-      {/*<Text>Curso teste {curso}</Text>*/}
     </View>
 
   )
