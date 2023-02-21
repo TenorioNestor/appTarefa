@@ -50,6 +50,7 @@ export default function App(){
 */
 
   function handleDelete(item){
+    alert
     let filtroItem = list.filter((tarefa) => {
       return (tarefa.item !== item)
     })
