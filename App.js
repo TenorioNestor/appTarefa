@@ -6,7 +6,9 @@ import
    TouchableOpacity,
    TextInput,
   FlatList,
-Keyboard} from 'react-native';
+Keyboard,
+    StatusBar
+} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {  FontAwesome } from '@expo/vector-icons'
 import Tarefa from './src/Tarefa'
@@ -67,6 +69,7 @@ export default function App(){
   return(
     
     <View style={styles.container}>
+      <StatusBar backgroundColor="22272e" barStyle="light-content" translucent={false} />
       <Text style={styles.title}>Tarefas</Text>
       
       <View style={styles.containerInput}>
